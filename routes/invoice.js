@@ -16,13 +16,21 @@ router.get('/invoice',async(req,res)=>{
 
 
 router.post('/invoice',(req,res)=>{
-    
-    let data = await Invoice.create(req.body)
-    if(data){
+    try {
+        let data = await Invoice.create(req.body)
+        if(data){
+            res.json({
+                message:'Created Invoice'
+            })
+        } 
+    } catch (error) {
         res.json({
-            message:'Created Invoice'
+            status: 404,
+            message: 'error',
+            error:error
         })
     }
+   
 })
 
 
