@@ -1,7 +1,10 @@
 const Sequelize = require('sequelize');
+require('dotenv').config();
 
-const dbConnect = new Sequelize('heroku_7a099c7aa97c6dc','b1e76a35c53fd3','a0b295f2',{
-    host:"us-cdbr-east-02.cleardb.com",
+console.log(process.env.DB_NAME,'db name')
+
+const dbConnect = new Sequelize(process.env.DB_NAME,process.env.DB_USERNAME,process.env.DB_PASSWORD,{
+    host:process.env.DB_HOST,
     dialect:"mysql",
     // operatorsAliases: false,
     port:3306,
