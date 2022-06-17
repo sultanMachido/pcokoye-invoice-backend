@@ -1,21 +1,28 @@
 const express = require('express');
 let router = express.Router();
-let Complaint = require('../models/Invoice');
+let Invoice = require('../models/Invoice');
 
 
-router.get('/invoice',(req,res)=>{
+router.get('/invoice',async(req,res)=>{
     
-    res.json({
-        message:'OK'
-    })
+    let data = await Invoice.create(req.body)
+    if(data){
+        res.json({
+            message:'Created Invoice'
+        })
+    }
+   
 })
 
 
 router.post('/invoice',(req,res)=>{
     
-    res.json({
-        message:'OK'
-    })
+    let data = await Invoice.create(req.body)
+    if(data){
+        res.json({
+            message:'Created Invoice'
+        })
+    }
 })
 
 
