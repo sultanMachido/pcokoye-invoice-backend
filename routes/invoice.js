@@ -20,6 +20,7 @@ router.post('/invoice',async(req,res)=>{
         let data = await Invoice.create(req.body)
         if(data){
             res.json({
+                status:200,
                 message:'Created Invoice'
             })
         } 
