@@ -15,7 +15,7 @@ router.get('/invoice',async(req,res)=>{
 })
 
 
-router.post('/invoice',(req,res)=>{
+router.post('/invoice',async(req,res)=>{
     try {
         let data = await Invoice.create(req.body)
         if(data){
