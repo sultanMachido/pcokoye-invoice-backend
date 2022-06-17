@@ -4,13 +4,23 @@ let Invoice = require('../models/Invoice');
 
 
 router.get('/invoice',async(req,res)=>{
-    
-    let data = await Invoice.create(req.body)
-    if(data){
+    try {
+        let data = await Invoice.findAll()
+        if(data){
+            res.json({
+                status:200,
+                message:'All invoices',
+                data:data
+            })
+        } 
+    } catch (error) {
         res.json({
-            message:'Created Invoice'
+            status:404,
+            message:'Error returning invoices',
+            error: error
         })
     }
+    
    
 })
 
