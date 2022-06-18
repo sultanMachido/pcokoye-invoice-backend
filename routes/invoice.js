@@ -24,6 +24,31 @@ router.get('/invoice',async(req,res)=>{
    
 })
 
+router.get('/invoice/:id',async(req,res)=>{
+    try {
+        let data = await Invoice.findAll({
+            where:{
+                id:req.params.id
+            }
+        })
+        if(data){
+            res.json({
+                status:200,
+                message:'Invoice returned',
+                data:data
+            })
+        } 
+    } catch (error) {
+        res.json({
+            status:404,
+            message:'Error returning invoices',
+            error: error
+        })
+    }
+    
+   
+})
+
 
 router.post('/invoice',async(req,res)=>{
     try {
