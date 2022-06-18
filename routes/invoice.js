@@ -1,7 +1,7 @@
 const express = require('express');
 let router = express.Router();
 let Invoice = require('../models/Invoice');
-let generateQR = require('../actions/generateQR')
+
 
 
 router.get('/invoice',async(req,res)=>{
@@ -52,10 +52,7 @@ router.get('/invoice/:id',async(req,res)=>{
 
 
 router.post('/invoice',async(req,res)=>{
-    try {
-       
-       
-           
+    try {    
        let data = await Invoice.create(req.body)
         if(data){
             res.json({
