@@ -53,12 +53,10 @@ router.get('/invoice/:id',async(req,res)=>{
 
 router.post('/invoice',async(req,res)=>{
     try {
-        let data
-        let QRCodeUrl = await generateQR(req.body)
-        if (QRCodeUrl) {
-        let formattedBody = {...req.body,qrCodeUrl:QRCodeUrl}    
-        data = await Invoice.create(formattedBody)
-        }
+       
+       
+           
+       let data = await Invoice.create(req.body)
         if(data){
             res.json({
                 status:200,
