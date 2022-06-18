@@ -1,6 +1,7 @@
 const express = require('express');
 let router = express.Router();
 let Invoice = require('../models/Invoice');
+let generateQR = require('../actions/generateQR')
 
 
 router.get('/invoice',async(req,res)=>{
@@ -52,7 +53,12 @@ router.get('/invoice/:id',async(req,res)=>{
 
 router.post('/invoice',async(req,res)=>{
     try {
-        let data = await Invoice.create(req.body)
+        let data
+        let QRCodeUrl = await generateQR(req.body)
+        if (QRCodeUrl) {
+        let formattedBody = {...req.body,qrCodeUrl:QRCodeUrl}    
+        data = await Invoice.create(formattedBody)
+        }
         if(data){
             res.json({
                 status:200,

@@ -44,6 +44,10 @@ module.exports = databaseConnection.dbConnect.define(
             type:Sequelize.STRING,
             allowNull: false
          },
+         qrCodeUrl:{
+            type:Sequelize.STRING,
+            allowNull: false
+         },
          createdAt: {
             type: Sequelize.DATE,
             allowNull: false
