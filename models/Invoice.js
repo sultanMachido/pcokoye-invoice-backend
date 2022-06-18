@@ -3,7 +3,7 @@ const Sequelize = require('sequelize');
 
 module.exports = databaseConnection.dbConnect.define(
     'invoice',{
-         invoiceId: {
+         id: {
             type:Sequelize.INTEGER,
             primaryKey:true,
             autoIncrement:true
