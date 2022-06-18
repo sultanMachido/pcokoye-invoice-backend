@@ -69,5 +69,27 @@ router.post('/invoice',async(req,res)=>{
    
 })
 
+router.put('/invoice/:id',(req,res)=>{
+   
+    Invoice.update(req.body,{
+        where:{
+            id:req.params.id
+        }
+    })
+    .then(()=> {
+        // console.log('user created!');
+        res.json({
+            status:200,
+            message:'Invoice details updated',
+
+        })
+    })
+    .catch(err => res.json({
+       code:400,
+       message:'Invoice details could not be updated',
+    }));
+
+})
+
 
 module.exports = router
