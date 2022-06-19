@@ -12,10 +12,6 @@ module.exports = databaseConnection.dbConnect.define(
              type:Sequelize.STRING,
              allowNull: false
           },
-          status: {
-            type:Sequelize.STRING,
-            allowNull: false
-         },
           price: {
              type:Sequelize.INTEGER,
              allowNull: false
@@ -24,7 +20,11 @@ module.exports = databaseConnection.dbConnect.define(
             type:Sequelize.INTEGER,
             allowNull: false
         },
-        item: {
+        quantity:{
+            type:Sequelize.INTEGER,
+            allowNull: false
+        },
+        descriptionOfTransaction: {
             type:Sequelize.STRING,
             allowNull: false
          },
@@ -45,6 +45,10 @@ module.exports = databaseConnection.dbConnect.define(
             allowNull: false
          },
          qrCodeUrl:{
+            type:Sequelize.STRING,
+            allowNull: false
+         },
+         orderDate:{
             type:Sequelize.STRING,
             allowNull: false
          },
