@@ -52,6 +52,10 @@ module.exports = databaseConnection.dbConnect.define(
             type:Sequelize.STRING,
             allowNull: false
          },
+         amountInWords:{
+            type:Sequelize.STRING,
+            allowNull: false
+         },
          balance:{
             type:Sequelize.INTEGER,
             allowNull: false
