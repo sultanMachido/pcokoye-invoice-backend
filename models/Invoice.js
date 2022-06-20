@@ -52,6 +52,14 @@ module.exports = databaseConnection.dbConnect.define(
             type:Sequelize.STRING,
             allowNull: false
          },
+         balance:{
+            type:Sequelize.INTEGER,
+            allowNull: false
+         },
+         customerNote:{
+            type:Sequelize.INTEGER,
+            allowNull: false
+         },
          createdAt: {
             type: Sequelize.DATE,
             allowNull: false
