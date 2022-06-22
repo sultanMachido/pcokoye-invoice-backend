@@ -12,15 +12,11 @@ module.exports = databaseConnection.dbConnect.define(
              type:Sequelize.STRING,
              allowNull: false
           },
-          price: {
+          amount: {
              type:Sequelize.INTEGER,
              allowNull: false
           },
          partialPayment:{
-            type:Sequelize.INTEGER,
-            allowNull: false
-        },
-        quantity:{
             type:Sequelize.INTEGER,
             allowNull: false
         },
