@@ -58,7 +58,7 @@ module.exports = databaseConnection.dbConnect.define(
          },
          customerNote:{
             type:Sequelize.INTEGER,
-            allowNull: false
+            allowNull: true
          },
          createdAt: {
             type: Sequelize.DATE,
